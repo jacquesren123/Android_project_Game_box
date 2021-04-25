@@ -8,6 +8,7 @@ import android.widget.Button
 class MainActivity : AppCompatActivity() {
 
     lateinit var startNewGameButton: Button
+    lateinit var ScoreButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,9 +16,16 @@ class MainActivity : AppCompatActivity() {
 
         startNewGameButton = findViewById(R.id.startNewGameButton)
 
-        startNewGameButton.setOnClickListener {
+       startNewGameButton.setOnClickListener {
             val intent = Intent(MainActivity@this, GameActivity::class.java)
             startActivity(intent)
+        }
+
+        ScoreButton = findViewById(R.id.ScoreButton)
+
+        ScoreButton.setOnClickListener {
+            val intent2 = Intent(MainActivity@this, ScoreActivity::class.java)
+            startActivity(intent2)
         }
     }
 }
