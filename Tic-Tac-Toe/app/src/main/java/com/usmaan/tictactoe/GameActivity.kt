@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 
@@ -22,10 +23,14 @@ class GameActivity : AppCompatActivity() {
     private lateinit var startNewGameButton: Button
     private lateinit var player1Points: TextView
     private lateinit var player2Points: TextView
+    private lateinit var name: String;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+
+        name = MainActivity.nameInput.toString();
+
 
         gameManager = GameManager()
 
@@ -62,7 +67,8 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun updatePoints() {
-        player1Points.text = "Player X Points: ${gameManager.player1Points}"
+        player1Points.text = "${MainActivity.nameInput.text}: ${gameManager.player1Points}"
+       // player1Points.text = "Player X Points: ${gameManager.player1Points}"
         player2Points.text = "Player O Points: ${gameManager.player2Points}"
     }
 
