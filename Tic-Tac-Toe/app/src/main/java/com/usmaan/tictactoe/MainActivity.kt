@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var startNewGameButton: Button
     lateinit var ScoreButton: Button
+    lateinit var hangmanButton: Button
     lateinit var name: String
     companion object {
         lateinit var nameInput: EditText
@@ -37,6 +38,13 @@ override fun onCreate(savedInstanceState: Bundle?) {
         ScoreButton.setOnClickListener {
             val intent2 = Intent(MainActivity@this, ScoreActivity::class.java)
             startActivity(intent2)
+        }
+
+        hangmanButton = findViewById(R.id.hangmanButton)
+
+        hangmanButton.setOnClickListener {
+            val intent3 = Intent(MainActivity@this, HangmanActivity::class.java)
+            startActivity(intent3)
         }
     }
 
