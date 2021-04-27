@@ -12,4 +12,25 @@
     <string name="Jacques">Jacques Ren</string>
     <string name="Selma">Selma Castella</string>
     <string name="Léo">Léo Pellan</string>
+    <string name="init_word">_ _ _ _ _ _ _ _</string>
+    <string name="new_game">New Game</string>
+    <string name="details_title">Hangman</string>
+    <string name="abs_letters">Missed : </string>
+    <string-array name="listWord">
+        <item>WEAKNESS</item>
+        <item>PASSWORD</item>
+        <item>ANALYSIS</item>
+        <item>JUDGMENT</item>
+        <item>SANDWICH</item>
+        <item>CRACKPOT</item>
+        <item>BATHROOM</item>
+        <item>DOMESTIC</item>
+        <item>SECURITY</item>
+        <item>CLASSIFY</item>
+        <item>MINIMIZE</item>
+        <item>SURVIVAL</item>
+        <item>DELICATE</item>
+        <item>APPETITE</item>
+        <item>TENDENCY</item>
+    </string-array>
 </resources>
