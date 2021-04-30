@@ -57,7 +57,7 @@ class GameActivity : AppCompatActivity() {
         nine.setOnClickListener { onBoxClicked(nine, Position(2, 2)) }
 
         startNewGameButton.setOnClickListener {
-            startNewGameButton.visibility = View.GONE
+            //startNewGameButton.visibility = View.GONE
             gameManager.reset()
             resetboxes()
         }
@@ -112,6 +112,8 @@ class GameActivity : AppCompatActivity() {
                 startNewGameButton.visibility = View.VISIBLE
                 showWinner(winningLine)
             }
+            else
+                startNewGameButton.visibility = View.VISIBLE
         }
     }
 

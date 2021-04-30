@@ -1,9 +1,17 @@
 package fr.epita.android.game_box
 
 import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import android.widget.TextView
+import kotlin.random.Random
 
 class HangmanActivity : AppCompatActivity() {
-        /*lateinit var guessWordList: Array<String>
+        lateinit var guessWordList: Array<String>
         var maxError = 11
         lateinit var wordToFind: String
         var letterFound: CharArray = CharArray(8)
@@ -43,7 +51,7 @@ class HangmanActivity : AppCompatActivity() {
 
         override fun onCreate(savedInstanceState: Bundle?) {
            super.onCreate(savedInstanceState)
-           setContentView(R.layout.activity_main)
+           setContentView(R.layout.activity_hangman)
 
            missed = findViewById(R.id.Missed)
            wordShowing = findViewById(R.id.wordShowing)
@@ -98,7 +106,7 @@ class HangmanActivity : AppCompatActivity() {
         }
 
         fun enterValue (letter: Char) {
-           if (!inputLetters.contains(letter)) {
+           if (!inputLetters.contains(letter.toString())) {
                if (wordToFind.contains(letter)) {
                    var i = wordToFind.indexOf(letter)
                    while (i >= 0) {
@@ -148,5 +156,5 @@ class HangmanActivity : AppCompatActivity() {
 
         fun launchNewGame(view: View) {
            newGame()
-        }*/
+        }
 }
