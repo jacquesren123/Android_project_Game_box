@@ -1,13 +1,10 @@
 package fr.epita.android.game_box
 
-import androidx.appcompat.app.AppCompatActivity
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
 
 class HangmanActivity : AppCompatActivity() {
@@ -47,6 +44,7 @@ class HangmanActivity : AppCompatActivity() {
         lateinit var buttonZ: Button
         var buttonLetters: ArrayList<Button> = ArrayList(26)
         var l: Char = '\u0000'
+        var str: String = "Missed : "
 
 
         override fun onCreate(savedInstanceState: Bundle?) {
@@ -85,14 +83,14 @@ class HangmanActivity : AppCompatActivity() {
            newGame()
         }
 
-        fun newGame() {
+        private fun newGame() {
            guessWordList = resources.getStringArray(R.array.listWord)
 
            for (button in buttonLetters) {
                button.setBackgroundColor(resources.getColor(R.color.grey))
            }
            err = 0
-           inputLetters.drop(inputLetters.size)
+            inputLetters.clear()
            wordToFind = guessWordList[Random.nextInt(guessWordList.size)]
 
            letterFound[0] = wordToFind[0]
@@ -101,11 +99,11 @@ class HangmanActivity : AppCompatActivity() {
                letterFound[i] = '_'
            }
 
-           missed.text = err.toString().plus(" / 11")
+           missed.text = str.plus(err.toString()).plus(" / 11")
            wordShowing.text = currentUpdate()
         }
 
-        fun enterValue (letter: Char) {
+        private fun enterValue (letter: Char) {
            if (!inputLetters.contains(letter.toString())) {
                if (wordToFind.contains(letter)) {
                    var i = wordToFind.indexOf(letter)
@@ -150,7 +148,7 @@ class HangmanActivity : AppCompatActivity() {
                }
                enterValue(l)
                wordShowing.text = currentUpdate()
-               missed.text = err.toString().plus(" / 11")
+               missed.text = str.plus(err.toString()).plus(" / 11")
                }
            }
 
