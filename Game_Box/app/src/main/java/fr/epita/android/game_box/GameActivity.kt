@@ -1,11 +1,14 @@
 package fr.epita.android.game_box
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
+import java.time.LocalDateTime
 
 class GameActivity : AppCompatActivity() {
 
@@ -24,6 +27,7 @@ class GameActivity : AppCompatActivity() {
     private lateinit var player2Points: TextView
     private lateinit var name: String;
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
@@ -102,6 +106,7 @@ class GameActivity : AppCompatActivity() {
         nine.isEnabled = true
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun onBoxClicked(box: TextView, position: Position) {
         if (box.text.isEmpty()) {
             box.text = gameManager.currentPlayerMark
@@ -111,6 +116,20 @@ class GameActivity : AppCompatActivity() {
                 disableBoxes()
                 startNewGameButton.visibility = View.VISIBLE
                 showWinner(winningLine)
+                if (gameManager.player1Points > gameManager.player2Points) {
+                    var score = ScoreActivity.Score(
+                        LocalDateTime.now(), 1,
+                        "TicTacToe", MainActivity.nameInput.text.toString(), "win"
+                    )
+                    GameManager.tictactoescores.add(score);
+                }
+                else {
+                    var score = ScoreActivity.Score(
+                        LocalDateTime.now(), 1,
+                        "TicTacToe", MainActivity.nameInput.text.toString(), "lose"
+                    )
+                    GameManager.tictactoescores.add(score);
+                }
             }
             else
                 startNewGameButton.visibility = View.VISIBLE

@@ -1,6 +1,14 @@
 package fr.epita.android.game_box
 
+import android.os.Build
+import androidx.annotation.RequiresApi
+import java.time.LocalDateTime
+
 class GameManager {
+
+    companion object {
+        var tictactoescores = arrayListOf<ScoreActivity.Score>();
+    }
 
     private var currentPlayer = 1
     var player1Points = 0
@@ -63,15 +71,21 @@ class GameManager {
         return null
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun hasGameEndedV2(): Boolean {
         state.forEach { row ->
             val hasWon = row.all { player -> player == currentPlayer }
-            if (hasWon) return true
+            if (hasWon){
+                return true
+            }
         }
 
         for (i: Int in state.indices) {
             val hasWon = state[i].all { player -> player == currentPlayer }
-            if (hasWon) return true
+            if (hasWon)
+            {
+                return true
+            }
         }
 
         for (i in state.indices) {

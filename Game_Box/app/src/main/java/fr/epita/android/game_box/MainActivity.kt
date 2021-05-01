@@ -7,13 +7,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 
-class MainActivity : AppCompatActivity() {
+public class MainActivity : AppCompatActivity() {
 
     lateinit var startNewGameButton: Button
     lateinit var ScoreButton: Button
     lateinit var hangmanButton: Button
-    lateinit var name: String
     companion object {
+        lateinit var name: String
         lateinit var nameInput: EditText
     }
 

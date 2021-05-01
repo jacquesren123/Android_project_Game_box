@@ -16,6 +16,7 @@
     <string name="new_game">New Game</string>
     <string name="details_title">Hangman</string>
     <string name="abs_letters">Missed : </string>
+    <string name="made_at">Made at</string>
     <string-array name="listWord">
         <item>WEAKNESS</item>
         <item>PASSWORD</item>

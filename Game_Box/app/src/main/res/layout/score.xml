@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2196F3">
+    android:background="#147ED3">
 
     <TextView
         android:id="@+id/titleTextView2"
         android:layout_width="404dp"
-        android:layout_height="98dp"
+        android:layout_height="120dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="20dp"
         android:gravity="center"
         android:text="@string/TheGameBox"
         android:textColor="#EC1616"
-        android:textSize="36sp"
+        android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -102,8 +102,118 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
-        android:text="Made at"
+        android:text="@string/made_at"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
-        tools:layout_editor_absoluteY="530dp" />
+        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName2"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/Player1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/titleTextView2"
+        app:layout_constraintStart_toEndOf="@+id/Date1"
+        app:layout_constraintTop_toTopOf="@+id/titleTextView2" />
+
+    <TextView
+        android:id="@+id/Date1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/Player1"
+        app:layout_constraintStart_toEndOf="@+id/Game1"
+        app:layout_constraintTop_toTopOf="@+id/titleTextView2" />
+
+    <TextView
+        android:id="@+id/Score1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Player1"
+        app:layout_constraintTop_toTopOf="@+id/titleTextView2" />
+
+    <TextView
+        android:id="@+id/Game1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/Date1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titleTextView2" />
+
+    <TextView
+        android:id="@+id/Game3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/Date1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titleTextView2" />
+
+    <TextView
+        android:id="@+id/Game2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/Game3"
+        app:layout_constraintEnd_toStartOf="@+id/Date1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Game1" />
+
+    <TextView
+        android:id="@+id/Date2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/Date3"
+        app:layout_constraintEnd_toStartOf="@+id/Player1"
+        app:layout_constraintStart_toEndOf="@+id/Game2"
+        app:layout_constraintTop_toBottomOf="@+id/Date1" />
+
+    <TextView
+        android:id="@+id/Date3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/Player1"
+        app:layout_constraintStart_toEndOf="@+id/Game3"
+        app:layout_constraintTop_toTopOf="@+id/titleTextView2" />
+
+    <TextView
+        android:id="@+id/Player3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/titleTextView2"
+        app:layout_constraintStart_toEndOf="@+id/Date3"
+        app:layout_constraintTop_toTopOf="@+id/titleTextView2" />
+
+    <TextView
+        android:id="@+id/Player2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/Player3"
+        app:layout_constraintEnd_toEndOf="@+id/titleTextView2"
+        app:layout_constraintStart_toEndOf="@+id/Date2"
+        app:layout_constraintTop_toBottomOf="@+id/Player1" />
+
+    <TextView
+        android:id="@+id/Score3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Player3"
+        app:layout_constraintTop_toTopOf="@+id/titleTextView2" />
+
+    <TextView
+        android:id="@+id/Score2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/Score3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Player2"
+        app:layout_constraintTop_toBottomOf="@+id/Score1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

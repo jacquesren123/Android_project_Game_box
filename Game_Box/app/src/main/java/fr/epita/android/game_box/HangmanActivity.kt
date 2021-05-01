@@ -1,10 +1,13 @@
 package fr.epita.android.game_box
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import java.time.LocalDateTime
 import kotlin.random.Random
 
 class HangmanActivity : AppCompatActivity() {
@@ -14,6 +17,7 @@ class HangmanActivity : AppCompatActivity() {
         var letterFound: CharArray = CharArray(8)
         var inputLetters: ArrayList<String> = ArrayList<String>(11)
         var err = 0
+        var foundletters = 0
         lateinit var wordShowing: TextView
         lateinit var missed: TextView
         lateinit var buttonA: Button
@@ -45,8 +49,12 @@ class HangmanActivity : AppCompatActivity() {
         var buttonLetters: ArrayList<Button> = ArrayList(26)
         var l: Char = '\u0000'
         var str: String = "Missed : "
+        companion object {
+            var hangmanscores = arrayListOf<ScoreActivity.Score>()
+        }
 
 
+        @RequiresApi(Build.VERSION_CODES.O)
         override fun onCreate(savedInstanceState: Bundle?) {
            super.onCreate(savedInstanceState)
            setContentView(R.layout.activity_hangman)
@@ -83,6 +91,7 @@ class HangmanActivity : AppCompatActivity() {
            newGame()
         }
 
+        @RequiresApi(Build.VERSION_CODES.O)
         private fun newGame() {
            guessWordList = resources.getStringArray(R.array.listWord)
 
@@ -106,6 +115,7 @@ class HangmanActivity : AppCompatActivity() {
         private fun enterValue (letter: Char) {
            if (!inputLetters.contains(letter.toString())) {
                if (wordToFind.contains(letter)) {
+                   foundletters++
                    var i = wordToFind.indexOf(letter)
                    while (i >= 0) {
                        letterFound[i] = letter
@@ -130,15 +140,32 @@ class HangmanActivity : AppCompatActivity() {
            inputLetters.add(letter.toString())
         }
 
+        @RequiresApi(Build.VERSION_CODES.O)
         private fun currentUpdate(): String {
            val builder = StringBuilder()
            for (element in letterFound) {
                builder.append(element)
                builder.append(" ")
            }
+            if (foundletters >= wordToFind.length)
+            {
+                var winscore = ScoreActivity.Score(
+                    LocalDateTime.now(), 2,
+                    "Hangmann", MainActivity.nameInput.text.toString(), "won"
+                )
+                hangmanscores.add(winscore)
+            }
+            else if (err == maxError) {
+                var lostscore = ScoreActivity.Score(
+                    LocalDateTime.now(), 2,
+                    "Hangmann", MainActivity.nameInput.text.toString(), "lose"
+                )
+                hangmanscores.add(lostscore)
+            }
            return builder.toString()
         }
 
+        @RequiresApi(Build.VERSION_CODES.O)
         fun selectLetter(view: View) {
            if (err < maxError) {
                for (button in buttonLetters) {
@@ -152,6 +179,7 @@ class HangmanActivity : AppCompatActivity() {
                }
            }
 
+        @RequiresApi(Build.VERSION_CODES.O)
         fun launchNewGame(view: View) {
            newGame()
         }
