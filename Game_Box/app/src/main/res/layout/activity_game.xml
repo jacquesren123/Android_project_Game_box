@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2196F3"
     android:padding="16dp"
     tools:context=".GameActivity">
 
@@ -116,7 +115,7 @@
         android:id="@+id/one"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginTop="208dp"
+        android:layout_marginTop="350dp"
         android:gravity="center"
         android:textColor="#000000"
         android:textSize="36sp"
@@ -130,7 +129,7 @@
         android:id="@+id/two"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginTop="208dp"
+        android:layout_marginTop="350dp"
         android:gravity="center"
         android:textColor="#000000"
         android:textSize="36sp"
@@ -143,7 +142,7 @@
         android:id="@+id/three"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginTop="208dp"
+        android:layout_marginTop="350dp"
         android:gravity="center"
         android:textColor="#000000"
         android:textSize="36sp"
@@ -256,5 +255,20 @@
         app:layout_constraintEnd_toStartOf="@+id/player_two_score"
         app:layout_constraintTop_toBottomOf="@+id/imageView9"
         app:srcCompat="@android:drawable/ic_notification_overlay" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="@string/titactoe"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="74sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
